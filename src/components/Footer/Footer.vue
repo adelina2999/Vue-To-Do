@@ -1,7 +1,8 @@
 <template>
   <div>
-    <button v-on:click="changeTitle">Change Title</button>   
-    <p>{{ title }}</p> 
+    <input type="text" @input="cssClass = 
+    $event.target.value">
+    <p :class="cssClass">Class: {{ cssClass }}</p> 
   </div>
 </template>
 
@@ -10,17 +11,18 @@ export default {
   name: 'Footer' ,
   data() {
     return {
-      title: 'Hello World!'
+      cssClass: ''
     }
-  },
-  methods: {
-    changeTitle() {
-      this.title = 'New Title'
-    }
-  },
+  }
 }
 </script>
 
 <style>
+  .red {
+    background-color: red;
+  }
 
+  .blue {
+    background-color: royalblue;
+  }
 </style>
