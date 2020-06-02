@@ -1,8 +1,8 @@
 <template>
   <div>
-    <input type="text" @input="cssClass = 
-    $event.target.value">
-    <p :class="cssClass">Class: {{ cssClass }}</p> 
+    <button @click="increment">Increment</button>
+    <p>Counter: {{ counter2 }}</p> 
+    <p>Clicks: {{ clicks }}</p> 
   </div>
 </template>
 
@@ -11,18 +11,23 @@ export default {
   name: 'Footer' ,
   data() {
     return {
-      cssClass: ''
+      counter: 0,
+      clicks: 0
+    }
+  },
+  methods: {
+    increment() {
+      this.clicks++
+    }
+  },
+  computed: {
+    counter2() {
+      return this.clicks * 2
     }
   }
 }
 </script>
 
 <style>
-  .red {
-    background-color: red;
-  }
 
-  .blue {
-    background-color: royalblue;
-  }
 </style>
